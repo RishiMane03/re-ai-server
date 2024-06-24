@@ -19,7 +19,8 @@ const store = new mongoDbSession({
 
 // middleware
 app.use(cors({
-    origin: 'http://localhost:3000', // Allow requests from this origin
+    // origin: 'http://localhost:3000', // Allow requests from this origin
+    origin: 'https://re-ai-client.vercel.app/', // Allow requests from this origin
     credentials: true // Allow credentials (cookies, authorization headers, etc.)
 }));
 app.use(express.json())
@@ -32,7 +33,7 @@ app.use(session({
 app.use(express.urlencoded({ extended: true }));
 // CORS Middleware
 const corsMiddleware = (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'https://re-ai-client.vercel.app/');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.setHeader('Access-Control-Allow-Credentials', true);
